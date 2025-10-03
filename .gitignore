@@ -1,0 +1,6 @@
+include/*
+lib/*
+build/*
+.cache/*
+shopsnake
+compile_commands.json
