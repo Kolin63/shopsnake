@@ -15,7 +15,10 @@ void snake::Snake::Decrease() { pos_.pop_back(); }
 bool snake::Snake::Move() {
   // update dir from queue
   if (queue_.size() > 0) {
-    dir_ = queue_[queue_.size() - 1];
+    dir_ = queue_[0];
+    for (size_t i{}; i < queue_.size() - 1; ++i) {
+      queue_[i] = queue_[i + 1];
+    }
     queue_.pop_back();
   }
 
