@@ -3,11 +3,17 @@
 
 #include <raylib.h>
 
+#include "game.hpp"
+
 int main() {
   InitWindow(600, 400, "Shop Snake");
   SetTargetFPS(60);
 
+  snake::Game game;
+
   while (!WindowShouldClose()) {
+    game.Update();
+
     BeginDrawing();
 
     ClearBackground(WHITE);
