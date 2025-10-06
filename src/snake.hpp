@@ -13,8 +13,6 @@ class Snake {
  public:
   enum class Direction : uint8_t { up, right, down, left };
 
-  Snake() : pos_{5, 4, 3}, dir_{Direction::right} { pos_.reserve(10); };
-
   // makes the snake one longer
   void Increase();
 
@@ -32,8 +30,8 @@ class Snake {
   const std::vector<int>& get_pos() const;
 
  private:
-  std::vector<int> pos_;  // pos[0] is head
-  Direction dir_;         // only refers to head tile
+  std::vector<int> pos_{5, 4, 3};    // pos[0] is head
+  Direction dir_{Direction::right};  // only refers to head tile
 };
 
 }  // namespace snake
