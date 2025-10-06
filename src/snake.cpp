@@ -37,7 +37,7 @@ bool snake::Snake::Move() {
   return true;
 }
 
-snake::Snake::Direction snake::Snake::get_dir() { return dir_; }
+snake::Snake::Direction snake::Snake::get_dir() const { return dir_; }
 void snake::Snake::set_dir(Direction dir) { dir_ = dir; }
 
-const std::vector<int>& snake::Snake::get_pos() { return pos_; }
+const std::vector<int>& snake::Snake::get_pos() const { return pos_; }

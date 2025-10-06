@@ -54,3 +54,5 @@ void snake::Game::UpdateSnake() {
   for (size_t i{0}; i < pos.size(); ++i) std::cout << pos[i] << '\n';
   std::cout << '\n';
 }
+
+const snake::Snake& snake::Game::get_snake() const { return snake_; }

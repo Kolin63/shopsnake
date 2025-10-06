@@ -14,6 +14,8 @@ class Game {
 
   void Update();
 
+  const Snake& get_snake() const;
+
  private:
   void Controls();
   void UpdateSnake();

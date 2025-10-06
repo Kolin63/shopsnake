@@ -26,10 +26,10 @@ class Snake {
   // returns false if the snake collides
   bool Move();
 
-  Direction get_dir();
+  Direction get_dir() const;
   void set_dir(Direction dir);
 
-  const std::vector<int>& get_pos();
+  const std::vector<int>& get_pos() const;
 
  private:
   std::vector<int> pos_;  // pos[0] is head
