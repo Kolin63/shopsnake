@@ -4,15 +4,16 @@
 #ifndef SRC_SNAKE_HPP_
 #define SRC_SNAKE_HPP_
 
+#include <cstdint>
 #include <vector>
 
 namespace snake {
 
 class Snake {
  public:
-  enum class Direction { up, right, down, left };
+  enum class Direction : uint8_t { up, right, down, left };
 
-  Snake() : pos{5, 4, 3}, dir{Direction::right} { pos.reserve(10); }
+  Snake() : pos_{5, 4, 3}, dir_{Direction::right} { pos_.reserve(10); };
 
   // makes the snake one longer
   void Increase();
@@ -25,11 +26,14 @@ class Snake {
   // returns false if the snake collides
   bool Move();
 
+  Direction get_dir();
+  void set_dir(Direction dir);
+
   const std::vector<int>& get_pos();
 
  private:
-  std::vector<int> pos;  // pos[0] is head
-  Direction dir;         // only refers to head tile
+  std::vector<int> pos_;  // pos[0] is head
+  Direction dir_;         // only refers to head tile
 };
 
 }  // namespace snake

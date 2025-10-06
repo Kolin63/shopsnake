@@ -4,11 +4,13 @@
 #include <raylib.h>
 
 #include "game.hpp"
+#include "world.hpp"
 
 int main() {
   InitWindow(600, 400, "Shop Snake");
-  SetTargetFPS(60);
+  SetTargetFPS(4);
 
+  snake::world_size = 20;
   snake::Game game;
 
   while (!WindowShouldClose()) {
