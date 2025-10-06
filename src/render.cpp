@@ -11,7 +11,7 @@ constexpr int kTileSize{16};
 
 snake::Window::Window() {
   InitWindow(600, 400, "Shop Snake");
-  SetTargetFPS(4);
+  SetTargetFPS(60);
 }
 
 void snake::Window::Render(const Game& game) {

@@ -10,8 +10,6 @@ namespace snake {
 
 class Game {
  public:
-  Game() : snake_{} {};
-
   void Update();
 
   const Snake& get_snake() const;
@@ -20,7 +18,9 @@ class Game {
   void Controls();
   void UpdateSnake();
 
-  Snake snake_;
+  Snake snake_{};
+
+  float delta_{};
 };
 
 }  // namespace snake

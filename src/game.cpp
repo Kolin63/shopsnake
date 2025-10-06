@@ -13,7 +13,11 @@
 
 void snake::Game::Update() {
   Controls();
-  UpdateSnake();
+  delta_ += GetFrameTime();
+  if (delta_ >= 1.0 / 4) {
+    delta_ -= (1.0 / 4);
+    UpdateSnake();
+  }
 }
 
 void snake::Game::Controls() {
