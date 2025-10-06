@@ -62,7 +62,7 @@ void snake::Game::Controls() {
 }
 
 void snake::Game::UpdateSnake() {
-  snake_.Move();
+  if (!snake_.Move()) alive_ = false;
   const auto& pos{snake_.get_pos()};
   std::cout << "world size: " << snake::world_size << '\n';
   for (size_t i{0}; i < pos.size(); ++i) std::cout << pos[i] << '\n';
@@ -71,6 +71,8 @@ void snake::Game::UpdateSnake() {
 
 const snake::Snake& snake::Game::get_snake() const { return snake_; }
 const snake::Item& snake::Game::get_item() const { return item_; }
+
+bool snake::Game::get_alive() const { return alive_; }
 
 int snake::Game::get_gold() const { return gold_; }
 void snake::Game::set_gold(int gold) { gold_ = gold; }

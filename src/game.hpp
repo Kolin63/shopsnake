@@ -16,6 +16,8 @@ class Game {
   const Snake& get_snake() const;
   const Item& get_item() const;
 
+  bool get_alive() const;
+
   int get_gold() const;
   void set_gold(int gold);
 
@@ -29,6 +31,8 @@ class Game {
   float delta_{};
 
   int gold_{};
+
+  bool alive_{true};
 };
 
 }  // namespace snake

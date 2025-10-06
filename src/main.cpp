@@ -15,6 +15,7 @@ int main() {
   while (!WindowShouldClose()) {
     game.Update();
     window.Render(game);
+    if (game.get_alive() == false) break;
   }
 
   CloseWindow();

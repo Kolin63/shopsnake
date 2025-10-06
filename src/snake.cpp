@@ -37,7 +37,16 @@ bool snake::Snake::Move() {
     }
   }
 
-  // TODO(kolin63): collision check
+  // wrap
+  const int x{pos_[0]};
+  const int y{snake::world_size * snake::world_size};
+  pos_[0] = (x + y) % y;
+
+  // collision check (dont collide with walls)
+  for (size_t i{1}; i < pos_.size(); ++i) {
+    if (pos_[i] == pos_[0]) return false;
+  }
+
   return true;
 }
 
