@@ -56,6 +56,9 @@ void snake::Game::Controls() {
       case KEY_A:
         if (snake_.get_dir() != right) snake_.set_dir(left);
         break;
+      case KEY_SPACE:
+        Shop();
+        break;
     }
     key = GetKeyPressed();
   }
@@ -67,6 +70,13 @@ void snake::Game::UpdateSnake() {
   std::cout << "world size: " << snake::world_size << '\n';
   for (size_t i{0}; i < pos.size(); ++i) std::cout << pos[i] << '\n';
   std::cout << '\n';
+}
+
+void snake::Game::Shop() {
+  constexpr int kPrice{3};
+  if (gold_ < kPrice || snake_.get_pos().size() <= 3) return;
+  gold_ -= kPrice;
+  snake_.Decrease();
 }
 
 const snake::Snake& snake::Game::get_snake() const { return snake_; }

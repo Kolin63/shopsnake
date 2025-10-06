@@ -24,6 +24,7 @@ class Game {
  private:
   void Controls();
   void UpdateSnake();
+  void Shop();
 
   Snake snake_{};
   Item item_{snake_};
