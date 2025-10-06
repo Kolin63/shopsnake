@@ -5,11 +5,7 @@
 
 #include <raylib.h>
 
-#include <cstddef>
-#include <iostream>
-
 #include "snake.hpp"
-#include "world.hpp"
 
 constexpr int kUPS{6};
 
@@ -33,7 +29,6 @@ void snake::Game::Update() {
 void snake::Game::Controls() {
   int key{GetKeyPressed()};
   while (key > 0) {
-    std::cout << key << '\n';
     using enum Snake::Direction;
     switch (key) {
       case KEY_UP:
@@ -66,10 +61,6 @@ void snake::Game::Controls() {
 
 void snake::Game::UpdateSnake() {
   if (!snake_.Move()) alive_ = false;
-  const auto& pos{snake_.get_pos()};
-  std::cout << "world size: " << snake::world_size << '\n';
-  for (size_t i{0}; i < pos.size(); ++i) std::cout << pos[i] << '\n';
-  std::cout << '\n';
 }
 
 void snake::Game::Shop() {
