@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) Colin Melican 2025
 
-#ifndef SRC_CONTROL_H_
-#define SRC_CONTROL_H_
+#ifndef SRC_CONTROL_HPP_
+#define SRC_CONTROL_HPP_
 
 #include <raylib.h>
 
@@ -12,4 +12,4 @@ void Control(KeyboardKey);
 
 }  // namespace snake
 
-#endif  // SRC_CONTROL_H_
+#endif  // SRC_CONTROL_HPP_

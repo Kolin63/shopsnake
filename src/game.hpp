@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) Colin Melican 2025
 
-#ifndef SRC_GAME_H_
-#define SRC_GAME_H_
+#ifndef SRC_GAME_HPP_
+#define SRC_GAME_HPP_
 
 #include "snake.hpp"
 
@@ -23,4 +23,4 @@ class Game {
 
 }  // namespace snake
 
-#endif  // SRC_GAME_H_
+#endif  // SRC_GAME_HPP_

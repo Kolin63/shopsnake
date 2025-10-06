@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) Colin Melican 2025
 
-#ifndef SRC_SNAKE_H_
-#define SRC_SNAKE_H_
+#ifndef SRC_SNAKE_HPP_
+#define SRC_SNAKE_HPP_
 
 #include <vector>
 
@@ -34,4 +34,4 @@ class Snake {
 
 }  // namespace snake
 
-#endif  // SRC_SNAKE_H_
+#endif  // SRC_SNAKE_HPP_
