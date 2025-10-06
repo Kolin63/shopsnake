@@ -12,7 +12,8 @@
 constexpr int kTileSize{16};
 
 snake::Window::Window() {
-  InitWindow(600, 400, "Shop Snake");
+  InitWindow(snake::world_size * kTileSize, snake::world_size * kTileSize,
+             "Shop Snake");
   SetTargetFPS(60);
 }
 
