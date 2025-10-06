@@ -13,9 +13,8 @@ int main() {
   snake::Game game{};
 
   while (!WindowShouldClose()) {
-    game.Update();
+    if (game.get_alive()) game.Update();
     window.Render(game);
-    if (game.get_alive() == false) break;
   }
 
   CloseWindow();

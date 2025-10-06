@@ -67,4 +67,8 @@ void snake::Window::DrawItem(const Game& game) {
 
 void snake::Window::DrawHUD(const Game& game) {
   DrawText(std::to_string(game.get_gold()).c_str(), 10, 10, 30, BLACK);
+  if (game.get_alive() == false) {
+    const int c{world_size * kTileSize / 2};
+    DrawText("DEAD", c, c, 50, BLACK);
+  }
 }
