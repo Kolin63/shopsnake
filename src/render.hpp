@@ -17,6 +17,8 @@ class Window {
  private:
   void DrawBackground();
   void DrawSnake(const Game& game);
+  void DrawItem(const Game& game);
+  void DrawHUD(const Game& game);
 };
 
 }  // namespace snake

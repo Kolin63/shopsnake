@@ -11,12 +11,22 @@
 #include "snake.hpp"
 #include "world.hpp"
 
+constexpr int kUPS{6};
+
 void snake::Game::Update() {
   Controls();
   delta_ += GetFrameTime();
-  if (delta_ >= 1.0 / 4) {
-    delta_ -= (1.0 / 4);
+  if (delta_ >= 1.0 / kUPS) {
+    delta_ -= (1.0 / kUPS);
     UpdateSnake();
+    if (item_.EatCheck()) {
+      if (item_.get_type() == Item::Type::apple) {
+        snake_.Increase();
+      } else {
+        gold_++;
+      }
+      item_.MakeItem();
+    }
   }
 }
 
@@ -60,3 +70,7 @@ void snake::Game::UpdateSnake() {
 }
 
 const snake::Snake& snake::Game::get_snake() const { return snake_; }
+const snake::Item& snake::Game::get_item() const { return item_; }
+
+int snake::Game::get_gold() const { return gold_; }
+void snake::Game::set_gold(int gold) { gold_ = gold; }

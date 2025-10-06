@@ -8,6 +8,10 @@
 
 #include "world.hpp"
 
+void snake::Snake::Increase() { pos_.push_back(pos_[pos_.size() - 1]); }
+
+void snake::Snake::Decrease() { pos_.pop_back(); }
+
 bool snake::Snake::Move() {
   // update everything after the head
   for (size_t i{pos_.size() - 1}; i >= 1; --i) {
