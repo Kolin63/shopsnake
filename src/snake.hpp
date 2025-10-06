@@ -24,14 +24,20 @@ class Snake {
   // returns false if the snake collides
   bool Move();
 
+  // adds action to queue
+  void Queue(Direction dir);
+
   Direction get_dir() const;
   void set_dir(Direction dir);
 
   const std::vector<int>& get_pos() const;
 
  private:
+  Direction OppositeDir(Direction dir);
+
   std::vector<int> pos_{5, 4, 3};    // pos[0] is head
   Direction dir_{Direction::right};  // only refers to head tile
+  std::vector<Direction> queue_{};
 };
 
 }  // namespace snake

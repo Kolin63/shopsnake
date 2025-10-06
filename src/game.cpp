@@ -39,22 +39,22 @@ void snake::Game::Controls() {
       case KEY_UP:
       case KEY_K:
       case KEY_W:
-        if (snake_.get_dir() != down) snake_.set_dir(up);
+        snake_.Queue(up);
         break;
       case KEY_RIGHT:
       case KEY_L:
       case KEY_D:
-        if (snake_.get_dir() != left) snake_.set_dir(right);
+        snake_.Queue(right);
         break;
       case KEY_DOWN:
       case KEY_J:
       case KEY_S:
-        if (snake_.get_dir() != up) snake_.set_dir(down);
+        snake_.Queue(down);
         break;
       case KEY_LEFT:
       case KEY_H:
       case KEY_A:
-        if (snake_.get_dir() != right) snake_.set_dir(left);
+        snake_.Queue(left);
         break;
       case KEY_SPACE:
         Shop();
