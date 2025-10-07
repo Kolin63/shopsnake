@@ -22,36 +22,44 @@ bool snake::Snake::Move() {
     queue_.pop_back();
   }
 
+  // wall collision check
+  switch (dir_) {
+    case Direction::up:
+      if (pos_[0] < world_size) return false;
+      break;
+    case Direction::right:
+      if (pos_[0] % world_size == world_size - 1) return false;
+      break;
+    case Direction::down:
+      if (pos_[0] >= world_size * world_size - world_size) return false;
+      break;
+    case Direction::left:
+      if (pos_[0] % world_size == 0) return false;
+      break;
+  }
+
   // update everything after the head
   for (size_t i{pos_.size() - 1}; i >= 1; --i) {
     pos_[i] = pos_[i - 1];
   }
+
   // update the head
   switch (dir_) {
-    case Direction::up: {
+    case Direction::up:
       pos_[0] -= world_size;
       break;
-    }
-    case Direction::right: {
+    case Direction::right:
       pos_[0] += 1;
       break;
-    }
-    case Direction::down: {
+    case Direction::down:
       pos_[0] += world_size;
       break;
-    }
-    case Direction::left: {
+    case Direction::left:
       pos_[0] -= 1;
       break;
-    }
   }
 
-  // wrap
-  const int x{pos_[0]};
-  const int y{snake::world_size * snake::world_size};
-  pos_[0] = (x + y) % y;
-
-  // collision check (dont collide with walls)
+  // self collision check
   for (size_t i{1}; i < pos_.size(); ++i) {
     if (pos_[i] == pos_[0]) return false;
   }
