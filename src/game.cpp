@@ -65,8 +65,10 @@ void snake::Game::UpdateSnake() {
 
 void snake::Game::Shop() {
   constexpr int kPrice{3};
-  if (gold_ < kPrice || snake_.get_pos().size() <= 3) return;
+  if (gold_ < kPrice || snake_.get_pos().size() < 5) return;
   gold_ -= kPrice;
+  snake_.Decrease();
+  snake_.Decrease();
   snake_.Decrease();
 }
 
