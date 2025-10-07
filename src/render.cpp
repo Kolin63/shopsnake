@@ -32,7 +32,8 @@ void snake::Window::DrawSnake(const Game& game) {
   const auto& pos{game.get_snake().get_pos()};
   const int w{snake::world_size};
   const int t{kTileSize};
-  for (size_t i{0}; i < pos.size(); ++i) {
+  for (size_t i{pos.size() - 1};; --i) {
+    const Color color{(i == 0) ? DARKGREEN : GREEN};
     const int p{pos[i]};
     const int x1{(p % w) * t};
     const int x2{x1 + t};
@@ -40,10 +41,11 @@ void snake::Window::DrawSnake(const Game& game) {
     const int y2{y1 + t};
     DrawTriangle({static_cast<float>(x1), static_cast<float>(y1)},
                  {static_cast<float>(x1), static_cast<float>(y2)},
-                 {static_cast<float>(x2), static_cast<float>(y1)}, GREEN);
+                 {static_cast<float>(x2), static_cast<float>(y1)}, color);
     DrawTriangle({static_cast<float>(x2), static_cast<float>(y2)},
                  {static_cast<float>(x2), static_cast<float>(y1)},
-                 {static_cast<float>(x1), static_cast<float>(y2)}, GREEN);
+                 {static_cast<float>(x1), static_cast<float>(y2)}, color);
+    if (i == 0) break;
   }
 }
 
