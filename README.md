@@ -5,6 +5,8 @@ coins, which you can spend to shorten your snake.
 This was the first project I made with
  [Raylib](https://github.com/raysan5/raylib), so it is very bare bones.
 
+![demo](demo.gif)
+
 ## 🎮 How to Play
 Use WASD, HJKL, or Arrow Keys to control the snake. The green pixels are the
 parts of the snake, the red pixels are apples, and the yellow pixels are coins.
